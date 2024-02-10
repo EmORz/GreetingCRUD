@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма за поздрав</title>
+</head>
+<body>
+<h1>Създаване на поздрав</h1>
+
+<form action="/greetings" method="post">
+    <label for="content"> Съдържание </label>
+    <input type="text" name="content" id="content">
+    <br>
+    <label for="type">Тип:</label>
+    <select name="type" id="type">
+        <option value="">Избери тип: ...</option>
+        <option th:each="greetingType : ${greetingTypes}" th:value="${greetingType}" th:text="${greetingType.name}">
+        </option>
+    </select>
+    <br>
+    <button type="submit">Създай</button>
+
+</form>
+</body>
+</html>
