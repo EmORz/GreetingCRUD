@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Поздравления</title>
+</head>
+<body>
+<h1>Поздравления</h1>
+<ul>
+    <li th:each="greeting : ${greetings}">
+        <a th:href="@{/greetings/{id}(id=${greeting.id})}">
+            <span th:text="${greeting.content}"></span>
+        </a>
+        (<span th:text="${greeting.type.name}"></span>)
+    </li>
+</ul>
+<a href="/greetings/new">Създай ново поздравление</a>
+</body>
+</html>
